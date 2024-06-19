@@ -1,20 +1,197 @@
+@font-face {
+  font-family: "Norse";
+  src: url("Norse-Bold.otf");
+}
+
+:root {
+  --gray: #cccccc;
+  --green: #596d48;
+  --red: #b91c1c;
+}
+
 body {
   margin: 0;
+  font-family: sans-serif;
+  background: #f7f9f5;
 }
 
 main {
   display: flex;
-  height: 100dvh;
-  width: 100%;
   flex: 1;
+  min-height: 100dvh;
 }
+
+/* Left */
 
 .sidebar {
-  background: red;
+  background: url("bg.jpg");
+  background-size: cover;
+  background-position: center;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 2rem;
+  gap: 1rem;
 }
 
+.logo-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0px 4px 16px rgba(17, 17, 26, 0.1),
+    0px 8px 24px rgba(17, 17, 26, 0.1), 0px 16px 56px rgba(17, 17, 26, 0.1);
+}
+
+.logo img {
+  max-height: 6rem;
+}
+
+.logo span {
+  color: white;
+  font-family: "Norse";
+  font-size: 5rem;
+  height: 3.8rem;
+  line-height: 1;
+}
+
+.credits {
+  color: white;
+  text-align: center;
+  font-weight: 300;
+}
+
+.credits a {
+  color: white;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+/* Right */
+
 .content {
-  background: blue;
-  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+}
+
+.quote {
+  max-width: 50ch;
+  font-size: 1.35rem;
+}
+
+.quote p:first-child {
+  margin: 0;
+  color: #333333;
+}
+
+.quote p:last-child {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* Form */
+
+.form-wrapper {
+  margin-top: 3rem;
+  max-width: 75ch;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--gray);
+  background: white;
+}
+
+.form-wrapper h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1rem;
+  margin: 2rem 0;
+}
+
+form p {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+form button {
+  background: #596d48;
+  height: 3rem;
+  color: white;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  grid-column: span 2 / span 2;
+}
+
+form label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: #333333;
+}
+
+form input {
+  border: 1px solid var(--gray);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+form input:invalid:not(:placeholder-shown),
+.password-invalid {
+  border-color: var(--red);
+  background: #b91c1c10;
+}
+
+form input:valid:not(#password, #confirmPassword),
+.password-valid {
+  border-color: var(--green);
+  background: #596d4810;
+}
+
+.password-error {
+  display: none;
+  color: var(--red);
+}
+
+a {
+  color: var(--green);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  form {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    align-items: start;
+    padding: 2rem;
+  }
+  main {
+    flex-direction: column;
+  }
 }
