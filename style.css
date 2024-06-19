@@ -12,6 +12,7 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  background: #f7f9f5;
 }
 
 main {
@@ -111,7 +112,7 @@ main {
   padding: 2rem;
   border-radius: 0.5rem;
   border: 1px solid var(--gray);
-  background: #f8f8f8;
+  background: white;
 }
 
 .form-wrapper h1 {
@@ -157,7 +158,7 @@ form input {
   border-radius: 0.25rem;
 }
 
-form input:invalid:not(:placeholder-shown, #password, #confirmPassword),
+form input:invalid:not(:placeholder-shown),
 .password-invalid {
   border-color: var(--red);
   background: #b91c1c10;
@@ -179,14 +180,18 @@ a {
   font-weight: bold;
 }
 
-@media (max-width: 1024px) {
-  main {
-    flex-direction: column;
-  }
-}
-
 @media (max-width: 768px) {
   form {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    align-items: start;
+    padding: 2rem;
+  }
+  main {
+    flex-direction: column;
   }
 }
