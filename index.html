@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign-up</title>
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main>
       <div class="sidebar">
-        <div class="logo">
-          <img src="odin-lined.png" alt="" /><span>odin</span>
+        <div class="logo-wrapper">
+          <div class="logo">
+            <img src="odin-lined.png" alt="" /><span>odin</span>
+          </div>
         </div>
         <div class="credits">
           Photo by
@@ -29,35 +32,59 @@
         </div>
         <div class="form-wrapper">
           <h1>Let's do this!</h1>
-          <form action="">
+          <form action="" class="sign-up">
             <p>
               <label for="firstName">first name</label
-              ><input type="text" id="firstName" />
+              ><input
+                type="text"
+                id="firstName"
+                required
+                placeholder="Your first name"
+              />
             </p>
             <p>
               <label for="lastName">last name</label
-              ><input type="text" id="lastName" />
+              ><input
+                type="text"
+                id="lastName"
+                required
+                placeholder="Your last name"
+              />
             </p>
             <p>
-              <label for="mail">email</label><input type="email" id="mail" />
+              <label for="mail">email</label
+              ><input
+                type="email"
+                id="mail"
+                required
+                placeholder="Your email"
+              />
             </p>
             <p>
               <label for="phone">phone number</label
-              ><input type="tel" id="phone" />
+              ><input
+                type="tel"
+                id="phone"
+                pattern="^\+49\s?\d{1,4}\s?\d{1,9}$|^0\d{2,5}\s?\d{4,9}$"
+                placeholder="Your phone number"
+                required
+              />
             </p>
             <p>
               <label for="password">password</label
-              ><input type="password" id="password" />
+              ><input type="password" id="password" required />
+              <span class="password-error">* Passwords do not match</span>
             </p>
             <p>
               <label for="confirmPassword">password</label
-              ><input type="password" id="confirmPassword" />
+              ><input type="password" id="confirmPassword" required />
             </p>
-            <p><button type="submit">Create Account</button></p>
+            <button type="submit">Create Account</button>
           </form>
           <div>Already have an account? <a href="#">Log In</a></div>
         </div>
       </div>
     </main>
+    <script src="validate.js"></script>
   </body>
 </html>
